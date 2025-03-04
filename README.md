@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -56,31 +57,6 @@ Qt6 C++23 shell/commandline application to encrypt / decrypt the given file.
 
 See folder `docs/img` for screenshots.
 
-## Test / Performance
-
-**tested on**
-
-- x86_64 Ubuntu 24.04.2 LTS
-- Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz with 6 cpu cores
-- average SSD storage
-- fallocate -l 1G test.img
-
-**read / write binary mode of 1 GB file with a chunk size of 4 MB**
-| type | val |
-| ---- | --------- |
-| real | 5m52,734s |
-| user | 5m49,905s |
-| sys | 0m2,391s |
-
-**read / write binary mode of 1 GB file with a chunk size of 16 MB**
-| type | val |
-| ---- | --------- |
-| real | 5m50,753s |
-| user | 5m48,691s |
-| sys | 0m2,049s |
-
-=> so compiled chunk size is 4 MB to give better feedback about the process status.
-
 ## Features
 
 - [ ] i18n
@@ -120,10 +96,39 @@ See folder `docs/img` for screenshots.
 
 ## Encryption
 
+_under construction_
+
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
 
 ## Decryption
+
+_under construction_
+
+## Test / Performance
+
+**tested on**
+
+- x86_64 Ubuntu 24.04.2 LTS
+- Intel(R) Core(TM) i5-9600K CPU @ 3.70GHz with 6 cpu cores
+- average SSD storage
+- fallocate -l 1G test.img
+
+**read / write binary mode of 1 GB file with a chunk size of 4 MB**
+| type | val |
+| ---- | --------- |
+| real | 5m52,734s |
+| user | 5m49,905s |
+| sys | 0m2,391s |
+
+**read / write binary mode of 1 GB file with a chunk size of 16 MB**
+| type | val |
+| ---- | --------- |
+| real | 5m50,753s |
+| user | 5m48,691s |
+| sys | 0m2,049s |
+
+=> so compiled chunk size is 4 MB to give better feedback about the process status.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -141,6 +146,8 @@ See folder `docs/img` for screenshots.
 - drag the program into the Applications Folder; macOS will automatically install the software for you.
 
 ## Windows
+
+_under construction_
 
 # Development
 
@@ -178,6 +185,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -223,6 +231,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 9 directories, 32 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
