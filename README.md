@@ -185,7 +185,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -231,7 +230,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 9 directories, 32 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
