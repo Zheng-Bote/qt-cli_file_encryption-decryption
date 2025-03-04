@@ -190,7 +190,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -212,17 +211,30 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── repo-create_doctoc.yml_
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
+├── .gitignore
 ├── LICENSE
-├── LICENSE_Apache-2
-├── LICENSE_GPL-2
-├── LICENSE_GPL-3
-├── LICENSE_MIT
 ├── README.md
+├── src
+│   ├── .gitignore
+│   ├── CMakeLists.txt
+│   ├── configure
+│   │   ├── ClangTidy.cmake
+│   │   ├── Doxygen.cmake
+│   │   ├── extra_headers
+│   │   └── rz_config.h.in
+│   ├── includes
+│   │   ├── cxxopts.hpp
+│   │   ├── qaesencryption.cpp
+│   │   ├── qaesencryption.h
+│   │   ├── rz_config.h
+│   │   ├── rz_options.h
+│   │   ├── rz_qt-aes.h
+│   │   └── rz_snippets.h
+│   └── main.cpp
 └── tree.bak
 
-6 directories, 21 files
+9 directories, 32 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
