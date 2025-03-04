@@ -20,9 +20,9 @@
 
 - [Description](#description)
   - [Test / Performance](#test--performance)
-    - [Features](#features)
-  - [Status](#status)
-    - [Documentation](#documentation)
+  - [Features](#features)
+- [Status](#status)
+- [Documentation](#documentation)
   - [Encryption](#encryption)
   - [Decryption](#decryption)
 - [Installation](#installation)
