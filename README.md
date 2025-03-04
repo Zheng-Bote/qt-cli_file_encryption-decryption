@@ -15,16 +15,15 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
-  - [Test / Performance](#test--performance)
   - [Features](#features)
 - [Status](#status)
 - [Documentation](#documentation)
   - [Encryption](#encryption)
   - [Decryption](#decryption)
+  - [Test / Performance](#test--performance)
 - [Installation](#installation)
   - [Linux](#linux)
   - [MacOS](#macos)
