@@ -15,39 +15,27 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
-  - [Features](#features)
+  - [Test / Performance](#test--performance)
+    - [Features](#features)
   - [Status](#status)
-    - [Application / Tool](#application--tool)
     - [Documentation](#documentation)
-      - [README](#readme)
-      - [other Markdown files](#other-markdown-files)
+  - [Encryption](#encryption)
+  - [Decryption](#decryption)
 - [Installation](#installation)
+  - [Linux](#linux)
+  - [MacOS](#macos)
+  - [Windows](#windows)
+- [Development](#development)
   - [Dependencies](#dependencies)
+    - [CMake](#cmake)
+    - [QT](#qt)
+    - [Qt-AES](#qt-aes)
   - [folder structure](#folder-structure)
-  - [Usage/Examples/Tests](#usageexamplestests)
-- [API Reference](#api-reference)
-  - [Inputs](#inputs)
-  - [Outputs](#outputs)
-  - [Parameters](#parameters)
-- [Documentation](#documentation-1)
-  - [Architecture](#architecture)
-    - [Github](#github)
-      - [Github Repo](#github-repo)
-      - [Github Actions / Workflows](#github-actions--workflows)
-  - [Application](#application)
-  - [DevOps](#devops)
-  - [Github Page](#github-page)
-  - [Github Wiki](#github-wiki)
-  - [Comments](#comments)
-  - [Screenshots](#screenshots)
 - [Authors and License](#authors-and-license)
-  - [License](#license)
-    - [MIT License](#mit-license)
-    - [Apache License](#apache-license)
+  - [MIT License](#mit-license)
   - [Authors](#authors)
     - [Code Contributors](#code-contributors)
 
@@ -190,7 +178,6 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -212,17 +199,30 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 │       ├── repo-create_doctoc.yml_
 │       ├── repo-create_doctoc_md.yml
 │       └── repo-create_tree_readme.yml
+├── .gitignore
 ├── LICENSE
-├── LICENSE_Apache-2
-├── LICENSE_GPL-2
-├── LICENSE_GPL-3
-├── LICENSE_MIT
 ├── README.md
+├── src
+│   ├── .gitignore
+│   ├── CMakeLists.txt
+│   ├── configure
+│   │   ├── ClangTidy.cmake
+│   │   ├── Doxygen.cmake
+│   │   ├── extra_headers
+│   │   └── rz_config.h.in
+│   ├── includes
+│   │   ├── cxxopts.hpp
+│   │   ├── qaesencryption.cpp
+│   │   ├── qaesencryption.h
+│   │   ├── rz_config.h
+│   │   ├── rz_options.h
+│   │   ├── rz_qt-aes.h
+│   │   └── rz_snippets.h
+│   └── main.cpp
 └── tree.bak
 
-6 directories, 21 files
+9 directories, 32 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
