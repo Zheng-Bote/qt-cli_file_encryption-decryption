@@ -93,7 +93,7 @@ See folder `docs/img` for screenshots.
 
 => so compiled chunk size is 4 MB to give better feedback about the process status.
 
-### Features
+## Features
 
 - [ ] i18n
 - [x] OSS and license
@@ -117,7 +117,7 @@ See folder `docs/img` for screenshots.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
-## Status
+# Status
 
 ![GitHub Created At](https://img.shields.io/github/created-at/Zheng-Bote/qt-cli_file_encryption-decryption)
 [![GitHub release (latest by date)](https://img.shields.io/github/v/release/Zheng-Bote/qt-cli_file_encryption-decryption?logo=GitHub)](https://github.com/Zheng-Bote/qt-cli_file_encryption-decryption/releases)
@@ -128,7 +128,7 @@ See folder `docs/img` for screenshots.
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt-cli_file_encryption-decryption)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt-cli_file_encryption-decryption)
 
-### Documentation
+# Documentation
 
 ## Encryption
 
