@@ -129,9 +129,10 @@ The program works with given arguments and/or given dotenv-file.
 ```mermaid
 flowchart TD;
     A["Variable"]-->Dotenv{"is defined in dotenv-file"}
-    Dotenv-. "Y" .->Attrib{"is defined as attribute"}
+    Dotenv-. "Y" .->S[["set environment variable"]]
     Dotenv-. "N" .->Attrib{"is defined as attribute"}
     Attrib-. "Y" .->S[["set environment variable"]]
+    Attrib-. "N" .->V[["get environment variable"]]
     S-->V
     V[["get environment variable"]]
     V-- "is empty" -->E("EXIT")
