@@ -277,6 +277,8 @@ An utility to load environment variables from a .env file
 ├── .gitignore
 ├── LICENSE
 ├── README.md
+├── docs
+│   └── dot.env
 ├── src
 │   ├── .gitignore
 │   ├── CMakeLists.txt
@@ -287,6 +289,7 @@ An utility to load environment variables from a .env file
 │   │   └── rz_config.h.in
 │   ├── includes
 │   │   ├── cxxopts.hpp
+│   │   ├── dotenv.h
 │   │   ├── qaesencryption.cpp
 │   │   ├── qaesencryption.h
 │   │   ├── rz_config.h
@@ -296,7 +299,7 @@ An utility to load environment variables from a .env file
 │   └── main.cpp
 └── tree.bak
 
-9 directories, 32 files
+10 directories, 34 files
 ```
 <!-- readme-tree end -->
 
