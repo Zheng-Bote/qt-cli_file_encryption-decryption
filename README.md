@@ -294,7 +294,6 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
-
 ```
 .
 ├── .github
@@ -343,7 +342,6 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
-
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
