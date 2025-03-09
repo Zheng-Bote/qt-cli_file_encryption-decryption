@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -117,27 +118,6 @@ Usage:
 
 ### Rules
 
-**dotenv-file vs env variables**
-
-The program works with given arguments and/or given dotenv-file.
-
-- if an entry is not defined (dotenv-file, environment variable, argument), the program exit with failure
-- a given argument overwrites a dotenv-file entry
-- if a given dotenv-file entry is missing, the program looks for the related environment variable
-
-```mermaid
-flowchart TD;
-    A["Variable"]-->Dotenv{"is defined in dotenv-file"}
-    Dotenv-. "Y" .->S[["set environment variable"]]
-    Dotenv-. "N" .->Attrib{"is defined as attribute"}
-    Attrib-. "Y" .->S[["set environment variable"]]
-    Attrib-. "N" .->V[["get environment variable"]]
-    S-->V
-    V[["get environment variable"]]
-    V-- "is empty" -->E("EXIT")
-    V-- "not empty and valid" -->P[["encrypt or decrypt file"]]
-```
-
 **encryption or decryption**
 
 - if sourcefile given without a targetfile and sourcefile has not extension `.aes`, the targetfile will be encrypted as `<samePath>/<sourcefile>.aes`
@@ -152,6 +132,28 @@ flowchart TD;
     A["path/to/sourcefile"]-. "has .aes" .->F[["decrypt sourcefile"]]
     F-- "has --target" -->G["new/path/to/sourcefile"]
     F-- "has no --target" -->H["path/to/sourcefile"]
+```
+
+**dotenv-file vs env variables**
+
+The program works with given arguments and/or given dotenv-file.
+
+- if an entry is not defined (dotenv-file, environment variable, argument), the program exit with failure
+- a given argument overwrites a dotenv-file entry
+- if a given dotenv-file entry is missing, the program looks for the related environment variable
+
+```mermaid
+flowchart TD;
+    A["Variable"]-->Dotenv{"is defined in dotenv-file"}
+    Dotenv-. "Y" .->S1[["set environment variable"]]
+    S1[["set environment variable"]]-->Attrib{"is defined as attribute"}
+    Dotenv-. "N" .->Attrib{"is defined as attribute"}
+    Attrib-. "Y" .->S[["set environment variable"]]
+    Attrib-. "N" .->V{"get environment variable"}
+    S-->V
+
+    V-- "is empty" -->E("EXIT")
+    V-- "not empty and valid" -->P[["encrypt or decrypt file"]]
 ```
 
 ## Encryption
@@ -296,6 +298,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -344,6 +347,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
