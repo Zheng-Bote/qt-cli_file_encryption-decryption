@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.23)
 
 project(
   qt-cli_file_encryption-decryption
-  VERSION 0.1.0
+  VERSION 0.2.0
   DESCRIPTION "cli app to encrypt and decrypt a given file"
   HOMEPAGE_URL "https://github.com/Zheng-Bote/qt-cli_file_encryption-decryption"
   LANGUAGES CXX)
@@ -36,10 +36,14 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Core)
 
 add_executable(
   ${PROJECT_NAME}
-  main.cpp includes/qaesencryption.cpp includes/qaesencryption.h
-  includes/rz_options.h includes/cxxopts.hpp
+  main.cpp
+  includes/qaesencryption.cpp
+  includes/qaesencryption.h
+  includes/rz_options.h
+  includes/cxxopts.hpp
   includes/rz_snippets.h
-  includes/rz_qt-aes.h)
+  includes/rz_qt-aes.h
+  includes/dotenv.h)
 target_link_libraries(${PROJECT_NAME} Qt${QT_VERSION_MAJOR}::Core)
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_23)
 

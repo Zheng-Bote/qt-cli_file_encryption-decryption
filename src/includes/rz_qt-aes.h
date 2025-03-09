@@ -108,16 +108,23 @@ std::tuple<bool, std::string> readBinaryFileInChunks(const std::string &sourceFi
 
         // Create a QByteArray from the buffer
         QByteArray chunkData(buffer.data(), bytesRead);
+        
+                std::println("processing {} of {} - {}",
+                     processedSize,
+                     sourceFileSize,
+                     toProcessSize - processedSize);
 
         if (do_encrypt) {
             //std::cout << "Encrypting..." << std::endl;
+            /*
             std::println("Encryption {} of {} - {}",
                          processedSize,
                          sourceFileSize,
                          toProcessSize - processedSize);
+            */
             std::tie(oknok, msg) = encrypt_data(sourceFile, targetFile, pwd, chunkData);
         } else {
-            std::cout << "Decrypting..." << std::endl;
+            //std::cout << "Decrypting..." << std::endl;
             std::tie(oknok, msg) = decrypt_data(sourceFile, targetFile, pwd, chunkData);
         }
     }

@@ -1,7 +1,7 @@
 <div id="top" align="center">
-<h1>qt-cli_file_encryption-decryption</h1>
+<h1>file encryption/decryption</h1>
 
-<h4>File encryption and decryption, shell/commandline</h4>
+<h4>File encryption and decryption (shell/commandline)</h4>
 <h6>for Linux, MacOS, Windows</h6>
 
 [Report Issue](https://github.com/Zheng-Bote/qt-cli_file_encryption-decryption/issues) [Request Feature](https://github.com/Zheng-Bote/qt-cli_file_encryption-decryption/pulls)
@@ -55,11 +55,20 @@ Qt6 C++23 shell/commandline application to encrypt / decrypt the given file.
 - Password: SHA256, between 5 to 32 characters
 - initialization vector: MD5
 
-See folder `docs/img` for screenshots.
-
 ## Features
 
+- [x] encrypt/decrypt every readable file (binary-mode, chunk size 4MB)
 - [ ] i18n
+
+- [x] runs on DOS/Windows (shell/commandline)
+- [x] runs on MacOS (cli)
+- [x] runs on Linux (cli)
+- [ ] runs on iOS
+- [ ] runs on Android
+- [ ] runs on HarmonyOS
+- [ ] supports pipe operator or arguments
+- [x] supports arguments and dotenv file
+
 - [x] OSS and license
 - [x] works as designed
 - [ ] no bugs
@@ -69,15 +78,6 @@ See folder `docs/img` for screenshots.
 - [x] Buildsystem: CMake
 - [x] Installation routine (no Adminstrator rights needed)
 - [ ] portable application
-
-- [x] runs on DOS/Windows
-- [x] runs on MacOS
-- [x] runs on Linux
-- [ ] runs on iOS
-- [ ] runs on Android
-- [ ] runs on HarmonyOS
-
-- [x] supports pipe operator or arguments
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -94,9 +94,55 @@ See folder `docs/img` for screenshots.
 
 # Documentation
 
+## Usage
+
+```cli
+file_encryption-decryption-x86_64 -h
+
+cli app to encrypt and decrypt a given file
+Usage:
+  qt-cli_file_encryption-decryption [OPTION...]
+
+  -s, --source arg  <path/to/sourcefile> to en-/de-crypt. Mandatory: -s | -d
+  -t, --target arg  target <path/to/outputfile>. Optional: -t | -d
+  -p, --pwd arg     name of password env variable. Mandatory: -p | -d
+  -d, --dotenv arg  <path/to/dotenv> file. Mandatory: -s | -p | -d
+  -h, --help        Print help
+```
+
+### Rules
+
+- if sourcefile given without a targetfile and sourcefile has not extension `.aes`, the targetfile will be encrypted as `<samePath>/<sourcefile>.aes`
+- if sourcefile has extension `.aes` without a targetfile, the targetfile will be decrypted `<samePath>/<sourcefile>` (without extension `.aes`)
+
+```mermaid
+flowchart TD;
+    A[<pathto/sourcefile>.aes]-. is_encrypted .->B[[encrypt sourcefile]]
+    B-- has_targetfile -->C[[<new/pathto/sourcefile>.aes]]
+    B-- no_targetfile -->C[[<pathto/sourcefile>.aes]]
+
+    A[<pathto/sourcefile>]-. not_encrypted .->B[[decrypt sourcefile]]
+    B-- has_targetfile -->C[[<new/pathto/sourcefile>]]
+    B-- no_targetfile -->C[[<pathto/sourcefile>]]
+```
+
 ## Encryption
 
-_under construction_
+### Linux
+
+```cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx
+
+cli app to encrypt and decrypt a given file
+Usage:
+  qt-cli_file_encryption-decryption [OPTION...]
+
+  -s, --source arg  <path/to/sourcefile> to en-/de-crypt. Mandatory: -s | -d
+  -t, --target arg  target <path/to/outputfile>. Optional: -t | -d
+  -p, --pwd arg     name of password env variable. Mandatory: -p | -d
+  -d, --dotenv arg  <path/to/dotenv> file. Mandatory: -s | -p | -d
+  -h, --help        Print help
+```
 
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
@@ -104,6 +150,22 @@ _under construction_
 ## Decryption
 
 _under construction_
+
+## configuration: dotenv or env
+
+Example dotenv file `.env`
+
+```dotenv
+SOURCE_FILE=/inpath/to/file.xlsx    # Mandatory or mandatory via argument --source
+TARGET_FILE=/outpath/to/file.xlsx   # Optional or optional via argument --target
+PWD=my_env_secret                   # Mandatory get password from $my_env_secret or mandatory via --pwd
+```
+
+Example pwd environmwent variable
+
+```cli
+export PWD="top_secret_password"
+```
 
 ## Test / Performance
 
@@ -177,8 +239,15 @@ The Qt framework contains a comprehensive set of highly intuitive and modularize
 
 Small and portable AES encryption class for Qt. Native support for all key sizes - 128/192/256 bits - ECB, CBC, CFB and OFB modes for all key sizes partial AES-NI support
 
-[![Matt Bricke](https://img.shields.io/badge/Github-bricke-black?logo=github)](https://github.com/bricke/Qt-AES)
+[![Matt Bricke](https://img.shields.io/badge/Github-Matt_Bricke-black?logo=github)](https://github.com/bricke/Qt-AES)
 [![UNLICENSE](https://img.shields.io/badge/License-Unlicense-green.svg)](https://github.com/bricke/Qt-AES?tab=Unlicense-1-ov-file)
+
+### dotenv-cpp
+
+An utility to load environment variables from a .env file
+
+[![Heikki Johannes Hildén](https://img.shields.io/badge/Github-Heikki_Johannes_Hildén-black?logo=github)](https://github.com/laserpants)
+[![BSD-3](https://img.shields.io/badge/License-BSD_3-green.svg)](https://choosealicense.com/licenses/bsd-3-clause)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
@@ -242,7 +311,7 @@ Small and portable AES encryption class for Qt. Native support for all key sizes
 
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
 
-Copyright (c) 2024 ZHENG Robert
+Copyright (c) 2025 ZHENG Robert
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
