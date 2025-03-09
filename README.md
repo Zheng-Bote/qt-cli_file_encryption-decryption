@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -116,13 +117,13 @@ Usage:
 
 ```mermaid
 flowchart TD;
-    A[<pathto/sourcefile>.aes]-. is_encrypted .->B[[encrypt sourcefile]]
+    A["<pathto/sourcefile>.aes"]-. is_encrypted .->B[[encrypt sourcefile]]
     B-- has_targetfile -->C[[<new/pathto/sourcefile>.aes]]
-    B-- no_targetfile -->C[[<pathto/sourcefile>.aes]]
+    B-- no_targetfile -->D[[<pathto/sourcefile>.aes]]
 
-    A[<pathto/sourcefile>]-. not_encrypted .->B[[decrypt sourcefile]]
-    B-- has_targetfile -->C[[<new/pathto/sourcefile>]]
-    B-- no_targetfile -->C[[<pathto/sourcefile>]]
+    A[<pathto/sourcefile>]-. not_encrypted .->F[[decrypt sourcefile]]
+    F-- has_targetfile -->G[[<new/pathto/sourcefile>]]
+    F-- no_targetfile -->H[[<pathto/sourcefile>]]
 ```
 
 ## Encryption
@@ -253,6 +254,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -298,6 +300,7 @@ An utility to load environment variables from a .env file
 
 9 directories, 32 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
