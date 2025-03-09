@@ -15,7 +15,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
@@ -27,10 +26,11 @@
   - [Encryption](#encryption)
     - [Linux](#linux)
   - [Decryption](#decryption)
+    - [Linux](#linux-1)
   - [configuration: dotenv or env](#configuration-dotenv-or-env)
   - [Test / Performance](#test--performance)
 - [Installation](#installation)
-  - [Linux](#linux-1)
+  - [Linux](#linux-2)
   - [MacOS](#macos)
   - [Windows](#windows)
 - [Development](#development)
