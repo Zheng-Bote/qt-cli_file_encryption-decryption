@@ -120,8 +120,11 @@ Usage:
 
 **encryption or decryption**
 
-- if sourcefile given without a targetfile and sourcefile has not extension `.aes`, the targetfile will be encrypted as `<samePath>/<sourcefile>.aes`
-- if sourcefile has extension `.aes` without a targetfile, the targetfile will be decrypted `<samePath>/<sourcefile>` (without extension `.aes`)
+- if sourcefile has not extension `.aes`, sourcefile will be encrypted as targetfile `<sourcefile>.aes`
+- if sourcefile has extension `.aes`, sourcefile will be decrypted as targetfile `<sourcefile>` (without extension `.aes`)
+
+> \[!WARNING]
+> existing targetfile will be overwritten
 
 ```mermaid
 flowchart TD;
