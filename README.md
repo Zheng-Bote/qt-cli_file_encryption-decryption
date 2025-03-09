@@ -128,10 +128,8 @@ The program works with given arguments and/or given dotenv-file.
 ```mermaid
 flowchart TD;
     A["Variable"]-. "is defined in dotenv-file" .->B[["set environment variable"]]
-    B-- "is empty" -->E("EXIT")
-    B-- "not empty and valid" -->P[["encrypt or decrypt file"]]
-
     A["Variable"]-. "is not defined in dotenv-file" .->C[["get environment variable"]]
+    B-->C
     C-- "is empty" -->E("EXIT")
     C-- "not empty and valid" -->P[["encrypt or decrypt file"]]
 ```
