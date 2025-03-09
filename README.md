@@ -22,11 +22,15 @@
   - [Features](#features)
 - [Status](#status)
 - [Documentation](#documentation)
+  - [Usage](#usage)
+    - [Rules](#rules)
   - [Encryption](#encryption)
+    - [Linux](#linux)
   - [Decryption](#decryption)
+  - [configuration: dotenv or env](#configuration-dotenv-or-env)
   - [Test / Performance](#test--performance)
 - [Installation](#installation)
-  - [Linux](#linux)
+  - [Linux](#linux-1)
   - [MacOS](#macos)
   - [Windows](#windows)
 - [Development](#development)
@@ -34,6 +38,7 @@
     - [CMake](#cmake)
     - [QT](#qt)
     - [Qt-AES](#qt-aes)
+    - [dotenv-cpp](#dotenv-cpp)
   - [folder structure](#folder-structure)
 - [Authors and License](#authors-and-license)
   - [MIT License](#mit-license)
@@ -279,6 +284,8 @@ An utility to load environment variables from a .env file
 ├── .gitignore
 ├── LICENSE
 ├── README.md
+├── docs
+│   └── dot.env
 ├── src
 │   ├── .gitignore
 │   ├── CMakeLists.txt
@@ -289,6 +296,7 @@ An utility to load environment variables from a .env file
 │   │   └── rz_config.h.in
 │   ├── includes
 │   │   ├── cxxopts.hpp
+│   │   ├── dotenv.h
 │   │   ├── qaesencryption.cpp
 │   │   ├── qaesencryption.h
 │   │   ├── rz_config.h
@@ -298,7 +306,7 @@ An utility to load environment variables from a .env file
 │   └── main.cpp
 └── tree.bak
 
-9 directories, 32 files
+10 directories, 34 files
 ```
 
 <!-- readme-tree end -->
