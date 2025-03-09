@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -127,11 +128,14 @@ The program works with given arguments and/or given dotenv-file.
 
 ```mermaid
 flowchart TD;
-    A["Variable"]-. "is defined in dotenv-file" .->B[["set environment variable"]]
-    A["Variable"]-. "is not defined in dotenv-file" .->C[["get environment variable"]]
-    B-->C
-    C-- "is empty" -->E("EXIT")
-    C-- "not empty and valid" -->P[["encrypt or decrypt file"]]
+    A["Variable"]-->Dotenv{"is defined in dotenv-file"}
+    Dotenv-. "Y" .->Attrib{"is defined as attribute"}
+    Dotenv-. "N" .->Attrib{"is defined as attribute"}
+    Attrib-. "Y" .->S[["set environment variable"]]
+    S-->V
+    V[["get environment variable"]]
+    V-- "is empty" -->E("EXIT")
+    V-- "not empty and valid" -->P[["encrypt or decrypt file"]]
 ```
 
 **encryption or decryption**
@@ -292,6 +296,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -340,6 +345,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
