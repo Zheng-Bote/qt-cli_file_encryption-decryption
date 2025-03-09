@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -116,44 +117,79 @@ Usage:
 
 ### Rules
 
+**dotenv-file vs env variables**
+
+The program works with given arguments and/or given dotenv-file.
+
+- if an entry is not defined (dotenv-file, environment variable, argument), the program exit with failure
+- a given argument overwrites a dotenv-file entry
+- if a given dotenv-file entry is missing, the program looks for the related environment variable
+
+```mermaid
+flowchart TD;
+    A["Variable"]-. "is defined in dotenv-file" .->B[["set environment variable"]]
+    B-- "is empty" -->E("EXIT")
+    B-- "not empty and valid" -->P[["encrypt or decrypt file"]]
+
+    A["Variable"]-. "is not defined in dotenv-file" .->C[["get environment variable"]]
+    C-- "is empty" -->E("EXIT")
+    C-- "not empty and valid" -->P[["encrypt or decrypt file"]]
+```
+
+**encryption or decryption**
+
 - if sourcefile given without a targetfile and sourcefile has not extension `.aes`, the targetfile will be encrypted as `<samePath>/<sourcefile>.aes`
 - if sourcefile has extension `.aes` without a targetfile, the targetfile will be decrypted `<samePath>/<sourcefile>` (without extension `.aes`)
 
 ```mermaid
 flowchart TD;
     A["path/to/sourcefile"]-. "has not .aes" .->B[[encrypt sourcefile]]
-    B-- "has --target" -->C[["new/path/to/sourcefile.aes"]]
-    B-- "has no --target" -->D[["path/to/sourcefile.aes"]]
+    B-- "has --target" -->C["new/path/to/sourcefile.aes"]
+    B-- "has no --target" -->D["path/to/sourcefile.aes"]
 
     A["path/to/sourcefile"]-. "has .aes" .->F[["decrypt sourcefile"]]
-    F-- "has --target" -->G[["new/path/to/sourcefile"]]
-    F-- "has no --target" -->H[["path/to/sourcefile"]]
+    F-- "has --target" -->G["new/path/to/sourcefile"]
+    F-- "has no --target" -->H["path/to/sourcefile"]
 ```
 
 ## Encryption
 
-### Linux
-
-```cli
-./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx
-
-cli app to encrypt and decrypt a given file
-Usage:
-  qt-cli_file_encryption-decryption [OPTION...]
-
-  -s, --source arg  <path/to/sourcefile> to en-/de-crypt. Mandatory: -s | -d
-  -t, --target arg  target <path/to/outputfile>. Optional: -t | -d
-  -p, --pwd arg     name of password env variable. Mandatory: -p | -d
-  -d, --dotenv arg  <path/to/dotenv> file. Mandatory: -s | -p | -d
-  -h, --help        Print help
-```
-
 > \[!WARNING]
 > don't loose your password. Decryption/Recovery without valid password is impossible!
 
+### Linux
+
+**encrypt**
+
+Encrypt `/path/to/sourcefile.xlsx` to `/path/to/sourcefile.xlsx.aes` with environment password-variable `my_secret_var`
+
+```cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --pwd my_secret_var
+```
+
+Encrypt `/path/to/sourcefile.xlsx` to `/new/path/to/targetfile.xlsx.aes` with dotenv-file (`PWD=$my_secret_var`)
+
+```cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --target /new/path/to/targetfile.xlsx --dotenv /my/configpath/.file_enc-dec
+```
+
 ## Decryption
 
-_under construction_
+### Linux
+
+**decrypt**
+
+Decrypt `/path/to/sourcefile.xlsx.aes` to `/path/to/sourcefile.xlsx`
+
+```cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes
+```
+
+Decrypt `/path/to/sourcefile.xlsx.aes` to `/new/path/to/targetfile.xlsx`
+
+```cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes --target /new/path/to/targetfile.xlsx
+```
 
 ## configuration: dotenv or env
 
@@ -162,7 +198,7 @@ Example dotenv file `.env`
 ```dotenv
 SOURCE_FILE=/inpath/to/file.xlsx    # Mandatory or mandatory via argument --source
 TARGET_FILE=/outpath/to/file.xlsx   # Optional or optional via argument --target
-PWD=my_env_secret                   # Mandatory get password from $my_env_secret or mandatory via --pwd
+PWD=my_env_secret                   # Mandatory get password from $my_env_secret or mandatory via --pwd my_env_secret
 ```
 
 Example pwd environmwent variable
@@ -258,6 +294,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -306,6 +343,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
