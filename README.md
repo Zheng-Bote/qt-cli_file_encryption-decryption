@@ -15,7 +15,6 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
@@ -29,22 +28,6 @@
   - [Decryption](#decryption)
     - [Linux](#linux-1)
   - [configuration: dotenv or env](#configuration-dotenv-or-env)
-  - [Test / Performance](#test--performance)
-- [Installation](#installation)
-  - [Linux](#linux-2)
-  - [MacOS](#macos)
-  - [Windows](#windows)
-- [Development](#development)
-  - [Dependencies](#dependencies)
-    - [CMake](#cmake)
-    - [QT](#qt)
-    - [Qt-AES](#qt-aes)
-    - [dotenv-cpp](#dotenv-cpp)
-  - [folder structure](#folder-structure)
-- [Authors and License](#authors-and-license)
-  - [MIT License](#mit-license)
-  - [Authors](#authors)
-    - [Code Contributors](#code-contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
