@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -167,13 +168,14 @@ flowchart TD;
 
 **encrypt**
 
-Encrypt `/path/to/sourcefile.xlsx` to `/path/to/sourcefile.xlsx.aes` with environment password-variable `my_secret_var`
+Encrypt `/path/to/sourcefile.xlsx` to `/path/to/sourcefile.xlsx.aes` with environment password-variable
 
 ```cli
-./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --pwd my_secret_var
+export my_secret_env_var="my_top_secret_password"
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --pwd my_secret_env_var
 ```
 
-Encrypt `/path/to/sourcefile.xlsx` to `/new/path/to/targetfile.xlsx.aes` with dotenv-file (`PWD=$my_secret_var`)
+Encrypt `/path/to/sourcefile.xlsx` to `/new/path/to/targetfile.xlsx.aes` with dotenv-file
 
 ```cli
 ./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --target /new/path/to/targetfile.xlsx --dotenv /my/configpath/.file_enc-dec
@@ -188,29 +190,32 @@ Encrypt `/path/to/sourcefile.xlsx` to `/new/path/to/targetfile.xlsx.aes` with do
 Decrypt `/path/to/sourcefile.xlsx.aes` to `/path/to/sourcefile.xlsx`
 
 ```cli
-./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes ...
 ```
 
 Decrypt `/path/to/sourcefile.xlsx.aes` to `/new/path/to/targetfile.xlsx`
 
 ```cli
-./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes --target /new/path/to/targetfile.xlsx
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx.aes --target /new/path/to/targetfile.xlsx ...
 ```
 
 ## configuration: dotenv or env
 
 Example dotenv file `.env`
 
+```cli
+export my_env_secret="my_top_secret_password"
+# => PWD => $my_secret_env_var => my_top_secret_password
+```
+
 ```dotenv
 SOURCE_FILE=/inpath/to/file.xlsx    # Mandatory or mandatory via argument --source
 TARGET_FILE=/outpath/to/file.xlsx   # Optional or optional via argument --target
-PWD=my_env_secret                   # Mandatory get password from $my_env_secret or mandatory via --pwd my_env_secret
+PWD=my_secret_env_var               # Mandatory get password from $my_secret_env_var or mandatory via --pwd my_secret_env_var
 ```
 
-Example pwd environmwent variable
-
-```cli
-export PWD="top_secret_password"
+````cli
+./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --pwd my_secret_env_var
 ```
 
 ## Test / Performance
@@ -300,6 +305,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -348,6 +354,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
@@ -393,3 +400,4 @@ SOFTWARE.
 :vulcan_salute:
 
 <p align="right">(<a href="#top">back to top</a>)</p>
+````
