@@ -122,13 +122,13 @@ Usage:
 
 ```mermaid
 flowchart TD;
-    A["<pathto/sourcefile>.aes"]-. is_encrypted .->B[[encrypt sourcefile]]
-    B-- has_targetfile -->C[[<new/pathto/sourcefile>.aes]]
-    B-- no_targetfile -->D[[<pathto/sourcefile>.aes]]
+    A["path/to/sourcefile"]-. "has not .aes" .->B[[encrypt sourcefile]]
+    B-- "has --target" -->C[["new/path/to/sourcefile.aes"]]
+    B-- "has no --target" -->D[["path/to/sourcefile.aes"]]
 
-    A[<pathto/sourcefile>]-. not_encrypted .->F[[decrypt sourcefile]]
-    F-- has_targetfile -->G[[<new/pathto/sourcefile>]]
-    F-- no_targetfile -->H[[<pathto/sourcefile>]]
+    A["path/to/sourcefile"]-. "has .aes" .->F[["decrypt sourcefile"]]
+    F-- "has --target" -->G[["new/path/to/sourcefile"]]
+    F-- "has no --target" -->H[["path/to/sourcefile"]]
 ```
 
 ## Encryption
