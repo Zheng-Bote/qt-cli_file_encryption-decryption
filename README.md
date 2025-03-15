@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -188,7 +189,7 @@ Example dotenv file `.env`
 
 ```cli
 export my_env_secret="my_top_secret_password"
-# => PWD => $my_secret_env_var => my_top_secret_password
+# PWD => $my_secret_env_var => my_top_secret_password
 ```
 
 ```dotenv
@@ -197,7 +198,7 @@ TARGET_FILE=/outpath/to/file.xlsx   # Optional or optional via argument --target
 PWD=my_secret_env_var               # Mandatory get password from $my_secret_env_var or mandatory via --pwd my_secret_env_var
 ```
 
-````cli
+```cli
 ./file_encryption-decryption-x86_64.AppImage --source /path/to/sourcefile.xlsx --pwd my_secret_env_var
 ```
 
@@ -288,6 +289,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -336,6 +338,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
