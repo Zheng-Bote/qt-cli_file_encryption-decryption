@@ -15,12 +15,12 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
-
 **Table of Contents**
 
 - [Description](#description)
   - [Features](#features)
 - [Status](#status)
+- [breaking Changes](#breaking-changes)
 - [Documentation](#documentation)
   - [Usage](#usage)
     - [Rules](#rules)
