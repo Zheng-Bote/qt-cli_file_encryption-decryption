@@ -15,6 +15,7 @@
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+
 **Table of Contents**
 
 - [Description](#description)
@@ -60,6 +61,8 @@ Qt6 C++23 shell/commandline application to encrypt / decrypt the given file.
 - Password: SHA256, between 5 to 32 characters
 - initialization vector: MD5
 
+see also the Desktop version [qt-desktop_file_encryption-decryption](https://github.com/Zheng-Bote/qt-desktop_file_encryption-decryption)
+
 ## Features
 
 - [x] encrypt/decrypt every readable file (binary-mode, chunk size 4MB)
@@ -96,6 +99,17 @@ Qt6 C++23 shell/commandline application to encrypt / decrypt the given file.
 
 ![GitHub Issues](https://img.shields.io/github/issues/Zheng-Bote/qt-cli_file_encryption-decryption)
 ![GitHub Pull Requests](https://img.shields.io/github/issues-pr/Zheng-Bote/qt-cli_file_encryption-decryption)
+
+# breaking Changes
+
+> \[!CAUTION]
+> Please be aware of breaking changes
+
+| Version | status                                  | Comment                                                            |
+| ------- | --------------------------------------- | ------------------------------------------------------------------ |
+| v0.1.0  | **NOT** compatible to higher versions.  | initial creation, text mode                                        |
+| v1.0.0  | **NOT** compatible with lower versions. | optimized input/output, text mode limited to some text-based files |
+| v2.0.0  | **NOT** compatible with lower versions. | binary-mode, works on every readable file. No filesize limit.      |
 
 # Documentation
 
@@ -248,8 +262,10 @@ PWD=my_secret_env_var               # Mandatory get password from $my_secret_env
 
 ## Linux
 
-- make AppImage executable (eg. `chmod 755 file_encryption-decryption-x86_64.AppImage` )
-- execute AppImage
+Several installation packages are available, depending on your Linux system (deb, rpm, zip, AppImage).
+
+> \[!Note]
+> see (latest) Release for packages
 
 ## MacOS
 
@@ -304,6 +320,7 @@ An utility to load environment variables from a .env file
 ## folder structure
 
 <!-- readme-tree start -->
+
 ```
 .
 ├── .github
@@ -352,6 +369,7 @@ An utility to load environment variables from a .env file
 
 10 directories, 34 files
 ```
+
 <!-- readme-tree end -->
 
 <p align="right">(<a href="#top">back to top</a>)</p>
